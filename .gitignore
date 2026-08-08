@@ -1,0 +1,27 @@
+/target/
+
+# Local operator configuration. The inert public example is the only exception.
+/config/*.toml
+!/config/example.toml
+
+# Credentials and local secret material.
+.env
+.env.*
+!.env.example
+/secrets/
+*.key
+*.pem
+*.p12
+*.pfx
+*.jks
+
+# Generated data and logs.
+*.log
+*.parquet
+/data/
+/artifacts/
+
+# Local tooling.
+.DS_Store
+.idea/
+.vscode/

@@ -1,0 +1,52 @@
+[product]
+name = "okx-rust-trading"
+
+[runtime]
+trader_id = "PUBLIC-DEMO-OPERATOR"
+poll_interval_ms = 1000
+tick_timeout_ms = 5000
+order_intent = "demo-okx-spot-confirmed"
+
+[okx]
+api_key = "${OKX_API_KEY}"
+api_secret = "${OKX_API_SECRET}"
+api_passphrase = "${OKX_API_PASSPHRASE}"
+account_id = "OKX-PUBLIC-DEMO"
+api_domain = "EEA"
+account_jurisdiction = "EEA"
+trading_service = "DEMO"
+request_timeout_ms = 60000
+
+[okx.websocket]
+max_staleness_ms = 1000
+reconnect_initial_backoff_ms = 500
+reconnect_max_backoff_ms = 10000
+
+[[instruments]]
+instrument_id = "BTC-USDT"
+base_currency = "BTC"
+quote_currency = "USDT"
+enabled = true
+
+# Test-only strategy fixture. It cannot load without injected test credentials.
+[[strategies.instances]]
+kind = "okx_ema_atr_maker_trend"
+id = "okx-ema-atr-maker-btc-usdt"
+instrument = "BTC-USDT"
+inst_type = "SPOT"
+td_mode = "cash"
+bar = "1m"
+
+[strategies.instances.params]
+fast_ema_period = 2
+slow_ema_period = 5
+atr_period = 3
+quantity = "0.001"
+operator_owned_base_balance = "1"
+max_entry_order_age_ms = 15000
+max_quote_notional = "500"
+entry_offset_atr_multiple = "0.1"
+min_entry_offset_bps = "1.0"
+max_entry_offset_bps = "15.0"
+take_profit_atr_multiple = "1.5"
+stop_loss_atr_multiple = "1.0"

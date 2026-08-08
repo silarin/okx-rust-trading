@@ -1,0 +1,33 @@
+[product]
+name = "okx-rust-trading"
+
+[runtime]
+trader_id = "PUBLIC-DEMO-OPERATOR"
+poll_interval_ms = 1000
+order_intent = "demo-okx-spot-confirmed"
+
+[okx]
+api_key = "${OKX_API_KEY}"
+api_secret = "${OKX_API_SECRET}"
+api_passphrase = "${OKX_API_PASSPHRASE}"
+account_id = "OKX-PUBLIC-DEMO"
+api_domain = "GLOBAL"
+account_jurisdiction = "OTHER"
+trading_service = "DEMO"
+request_timeout_ms = 60000
+
+[okx.websocket]
+max_staleness_ms = 1000
+reconnect_initial_backoff_ms = 500
+reconnect_max_backoff_ms = 10000
+
+[[instruments]]
+instrument_id = "ETH-USDT"
+base_currency = "ETH"
+quote_currency = "USDT"
+enabled = true
+
+[trading_tuple]
+instrument = "ETH-USDT"
+inst_type = "SPOT"
+td_mode = "cash"
