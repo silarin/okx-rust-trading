@@ -51,4 +51,8 @@ WebSocket order acknowledgements and private stream events are hints, not final 
 
 Trading digital assets can result in rapid and total loss. Software defects, network failures, stale market data, exchange behavior, and misconfiguration can create unintended orders or positions. This project is provided without financial advice or any guarantee of correctness, availability, or profitability. Use only accounts, permissions, and capital you are prepared to risk.
 
+## License
+
+Licensed under the [MIT License](LICENSE). Copyright (c) 2026 `silarin`.
+
 See [SECURITY.md](SECURITY.md) for credential and vulnerability reporting guidance.
